@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head></head>
+  <body>
+    <div id="root"></div>
+
+    <script src="https://unpkg.com/react/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script type="text/babel">
+      var person = {
+        firstName: "Adil",
+        lastName: "NJ",
+      };
+      var sayNames = (user) =>
+        `Hello ${user.firstName} ${user.lastName}, it's a pleasure meeting you!`;
+      const element = <h1> {sayNames(person)}</h1>;
+      const container = document.getElementById("root");
+      ReactDOM.render(element, container);
+    </script>
+  </body>
+</html>
