@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://unpkg.com/react/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+      function SayHi(props) {
+        return (
+          <h1>
+            Hi! {props.firstName} {props.lastName}
+          </h1>
+        );
+      }
+
+      ReactDOM.render(
+        <SayHi firstName="Adil" lastName="NJ" />,
+        document.getElementById("root")
+      );
+    </script>
+  </body>
+</html>

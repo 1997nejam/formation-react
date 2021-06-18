@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <script src="https://unpkg.com/react/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script text="text/babel">
+      function Title(props) {
+        return <h1>Gestion des Taches</h1>;
+      }
+
+      function AddForm(props) {
+        return;
+        <div>
+          <form>
+            <input type="text" />
+            <button>Add</button>
+          </form>
+        </div>;
+      }
+
+      function Task(props) {
+        return <li>{props.name}</li>;
+      }
+
+      function Tasks(props) {
+        return;
+        <ul>
+          <task name="Task 1" />
+          <task name="Task 2" />
+          <task name="Task 3" />
+        </ul>;
+      }
+
+      function App(props) {
+        return (
+          <div>
+            <Title />
+            <AddForm />
+            <Tasks />
+          </div>
+        );
+      }
+
+      ReactDOM.render(<App />, document.getElementById("root"));
+    </script>
+  </body>
+</html>
