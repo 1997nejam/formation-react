@@ -13,32 +13,45 @@
     <script src="https://unpkg.com/react-dom/umd/react-dom.development.js"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
-    <script text="text/babel">
-      function Title(props) {
-        return <h1>Gestion des Taches</h1>;
+    <script type="text/babel">
+      class Title extends React.Component {
+        render() {
+          return <h1>Gestion des Taches</h1>;
+        }
       }
 
-      function AddForm(props) {
-        return;
-        <div>
-          <form>
-            <input type="text" />
-            <button>Add</button>
-          </form>
-        </div>;
+      class AddForm extends React.Component {
+        render() {
+          return (
+            <div>
+              <form>
+                <input type="text" />
+                <button>Add</button>
+              </form>
+            </div>
+          );
+        }
       }
 
-      function Task(props) {
-        return <li>{props.name}</li>;
+      class Task extends React.Component {
+        constructor(props) {
+          super(props);
+        }
+        render() {
+          return <li>{this.props.name}</li>;
+        }
       }
 
-      function Tasks(props) {
-        return;
-        <ul>
-          <task name="Task 1" />
-          <task name="Task 2" />
-          <task name="Task 3" />
-        </ul>;
+      class TaskList extends React.Component {
+        constructor(props) {
+          super(props);
+          this.TaskArrayMap = props.taskArray.map((task, indice) => {
+            return <Task key={indice} name={task.name} />;
+          });
+        }
+        render() {
+          return <ul>{this.TaskArrayMap}</ul>;
+        }
       }
 
       function App(props) {
@@ -46,12 +59,20 @@
           <div>
             <Title />
             <AddForm />
-            <Tasks />
+            <TaskList taskArray={props.taskArray} />
           </div>
         );
       }
 
-      ReactDOM.render(<App />, document.getElementById("root"));
+      var TaskArray = [
+        { name: "Task number 1", done: true },
+        { name: "Task number 2", done: true },
+        { name: "Task number 3", done: false },
+      ];
+      ReactDOM.render(
+        <App taskArray={TaskArray} />,
+        document.getElementById("root")
+      );
     </script>
   </body>
 </html>
